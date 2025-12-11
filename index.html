@@ -3,103 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallpaper Otter | 4K AI Art</title>
+    <title>Wallpaper Otter | The 4K Visual Experience</title>
     <style>
         :root {
-            --gold: #FFD700;
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
+            --gold: #D4AF37; /* More premium metallic gold */
+            --dark: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
         }
         body {
             background-color: var(--dark);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
+        }
+        /* Premium Background Effect */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15), transparent 60%);
+            z-index: -1;
+            pointer-events: none;
         }
         .hero {
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--dark) 100%), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
-        p { font-size: 1.2rem; color: #ccc; max-width: 600px; line-height: 1.6; }
-        .badge {
-            background: rgba(255, 215, 0, 0.1);
+        h1 { 
+            font-size: 4.5rem; 
+            margin: 0; 
+            letter-spacing: -3px; 
+            font-weight: 800;
+            background: linear-gradient(to bottom right, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
             color: var(--gold);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border: 1px solid var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
             margin-bottom: 20px;
-            display: inline-block;
+            margin-top: 0;
         }
+        p { 
+            font-size: 1.25rem; 
+            color: #888; 
+            max-width: 600px; 
+            line-height: 1.7; 
+            margin-top: 20px;
+        }
+        
+        /* Premium Glass Button */
         .btn-download {
             background: var(--gold);
             color: black;
-            padding: 18px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 20px 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             text-decoration: none;
             border-radius: 50px;
-            margin-top: 30px;
-            transition: transform 0.2s;
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            margin-top: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
-        .btn-download:hover { transform: scale(1.05); }
-        .features { padding: 50px 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .btn-download:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
+            background: #fff;
+        }
+
+        /* Feature Cards with Glassmorphism */
+        .features { 
+            padding: 80px 20px; 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         .card {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 20px;
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 24px;
             width: 300px;
             text-align: left;
-            border: 1px solid #333;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
         }
-        .card h3 { color: var(--gold); margin-top: 0; }
-        footer { padding: 40px; color: #666; font-size: 0.9rem; border-top: 1px solid #222; }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+        .card h3 { color: white; margin-top: 0; font-size: 1.4rem; }
+        .card p { font-size: 1rem; color: #aaa; margin-top: 10px; }
+        
+        footer { 
+            padding: 60px; 
+            color: #444; 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Mobile Tweaks */
+        @media (max-width: 600px) {
+            h1 { font-size: 3rem; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="bg-glow"></div>
+
     <div class="hero">
-        <div class="badge">✨ v1.0 Launch Release</div>
+        <h2>Visual Perfection</h2>
         <h1>Wallpaper Otter</h1>
-        <p>The ultimate 4K Neural Art Engine. Unlock the cosmos with daily AI-generated masterpieces.</p>
+        <p>Experience the next evolution of visual fidelity. Enhanced by our proprietary neural engine for uncompromising 4K clarity.</p>
         
         <a href="https://github.com/kirito-meta/wallpaper-otter-site/releases/download/v1.0/WallpaperOtter_v1.0.apk" class="btn-download">
-            📥 Download APK (Free)
+            Download Global Edition
         </a>
         <br>
-        <small style="color: #666; margin-top: 15px; display: block;">Requires Android 10+</small>
+        <small style="color: #444; margin-top: 20px; display: block; font-size: 0.8rem;">
+            Compatible with Android 10+
+        </small>
     </div>
 
     <div class="features">
         <div class="card">
-            <h3>🎨 4K Neural Art</h3>
-            <p>Every wallpaper is generated by advanced AI nodes. Crisp, unique, and unlike anything else on your phone.</p>
+            <h3>✨ Neural Enhancement</h3>
+            <p>Our advanced models upscale and refine every texture, delivering a level of detail that traditional wallpapers simply cannot match.</p>
         </div>
         <div class="card">
-            <h3>🔓 Otter Prime</h3>
-            <p>One-time unlock for pure, ad-free immersion. Support indie development directly.</p>
+            <h3>💎 Otter Prime</h3>
+            <p>Unlock the full potential of the visual engine. A seamless, premium experience designed for enthusiasts.</p>
         </div>
         <div class="card">
-            <h3>🚀 Daily Updates</h3>
-            <p>Fresh content delivered every 24 hours via our cloud neural network.</p>
+            <h3>🌐 Global Curations</h3>
+            <p>A daily refreshed stream of high-fidelity visuals, curated from around the world for your device.</p>
         </div>
     </div>
 
     <footer>
-        <p>Designed in India. Built for the Galaxy.</p>
-        <p><a href="app-ads.txt" style="color: #444;">AdMob Verification</a></p>
+        <p>&copy; 2025 Wallpaper Otter. International Edition.</p>
+        <p style="margin-top: 20px;"><a href="app-ads.txt" style="color: #333; text-decoration: none;">Verification</a></p>
     </footer>
 
 </body>
