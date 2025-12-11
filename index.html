@@ -3,166 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallpaper Otter | The 4K Visual Experience</title>
+    <title>Wallpaper Otter | Neural Visual Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #D4AF37; /* More premium metallic gold */
-            --dark: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --gold: #FFD700;
+            --gold-glow: rgba(255, 215, 0, 0.4);
+            --deep-space: #050505;
         }
+
         body {
-            background-color: var(--dark);
+            background-color: var(--deep-space);
             color: white;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
             overflow-x: hidden;
+            text-align: center;
         }
-        /* Premium Background Effect */
-        .bg-glow {
+
+        /* --- THE ADVANCED BACKGROUND ENGINE --- */
+        .nebula-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08), transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1), transparent 40%);
+            animation: nebula-spin 60s linear infinite;
+            z-index: -2;
+        }
+        
+        .stars {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15), transparent 60%);
+            background-image: 
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.1;
             z-index: -1;
-            pointer-events: none;
+            animation: stars-drift 100s linear infinite;
         }
+
+        @keyframes nebula-spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+        @keyframes stars-drift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-500px); }
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
+            position: relative;
         }
-        h1 { 
-            font-size: 4.5rem; 
-            margin: 0; 
-            letter-spacing: -3px; 
-            font-weight: 800;
-            background: linear-gradient(to bottom right, #fff, #aaa);
+
+        h2 {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            animation: fade-in-up 1s ease-out;
+        }
+
+        /* Cinematic Gradient Text */
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, #fff 20%, #999 50%, var(--gold) 80%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+            text-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        h2 {
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        p.subtitle {
             font-size: 1.5rem;
+            color: #aaa;
+            max-width: 700px;
+            margin-top: 25px;
             font-weight: 300;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            margin-top: 0;
+            line-height: 1.6;
+            animation: fade-in-up 1.5s ease-out;
         }
-        p { 
-            font-size: 1.25rem; 
-            color: #888; 
-            max-width: 600px; 
-            line-height: 1.7; 
-            margin-top: 20px;
+
+        /* --- PREMIUM BUTTON --- */
+        .btn-wrapper {
+            margin-top: 60px;
+            animation: fade-in-up 2s ease-out;
+            position: relative;
+            z-index: 10;
         }
-        
-        /* Premium Glass Button */
+
         .btn-download {
-            background: var(--gold);
-            color: black;
-            padding: 20px 50px;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold);
+            padding: 22px 55px;
             font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 50px;
-            margin-top: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            border-radius: 100px;
+            border: 1px solid var(--gold);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background: var(--gold);
+            color: black;
+            box-shadow: 0 0 80px rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* --- GLASS CARDS --- */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 30px;
+            width: 320px;
+            text-align: left;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
-        .btn-download:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
-            background: #fff;
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
 
-        /* Feature Cards with Glassmorphism */
-        .features { 
-            padding: 80px 20px; 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 30px; 
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .card {
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 24px;
-            width: 300px;
-            text-align: left;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
+            transform: translateY(-15px);
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .card h3 { color: white; margin-top: 0; font-size: 1.4rem; }
-        .card p { font-size: 1rem; color: #aaa; margin-top: 10px; }
-        
-        footer { 
-            padding: 60px; 
-            color: #444; 
-            font-size: 0.9rem; 
-            border-top: 1px solid var(--border);
+
+        .card h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: #888;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            padding: 80px 20px;
+            color: #333;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        
-        /* Mobile Tweaks */
-        @media (max-width: 600px) {
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
             h1 { font-size: 3rem; }
+            .hero { min-height: 70vh; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="nebula-bg"></div>
+    <div class="stars"></div>
 
     <div class="hero">
-        <h2>Visual Perfection</h2>
+        <h2>System V1.0 Online</h2>
         <h1>Wallpaper Otter</h1>
-        <p>Experience the next evolution of visual fidelity. Enhanced by our proprietary neural engine for uncompromising 4K clarity.</p>
+        <p class="subtitle">
+            The next evolution in mobile aesthetics. <br> 
+            Powered by high-fidelity neural networks for uncompromising 4K clarity.
+        </p>
         
-        <a href="https://github.com/kirito-meta/wallpaper-otter-site/releases/download/v1.0/WallpaperOtter_v1.0.apk" class="btn-download">
-            Download Global Edition
-        </a>
-        <br>
-        <small style="color: #444; margin-top: 20px; display: block; font-size: 0.8rem;">
-            Compatible with Android 10+
-        </small>
+        <div class="btn-wrapper">
+            <a href="https://github.com/kirito-meta/wallpaper-otter-site/releases/download/v1.0/WallpaperOtter_v1.0.apk" class="btn-download">
+                Initialize Download
+            </a>
+        </div>
+        
+        <div style="margin-top: 30px; opacity: 0.5; font-size: 0.9rem;">
+            <span>● Android 10+</span>
+            <span style="margin: 0 15px;">●</span>
+            <span>Global Edition</span>
+        </div>
     </div>
 
     <div class="features">
         <div class="card">
             <h3>✨ Neural Enhancement</h3>
-            <p>Our advanced models upscale and refine every texture, delivering a level of detail that traditional wallpapers simply cannot match.</p>
+            <p>Every pixel is processed by our proprietary upscaling engine, delivering texture fidelity that exceeds standard 4K definition.</p>
         </div>
         <div class="card">
             <h3>💎 Otter Prime</h3>
-            <p>Unlock the full potential of the visual engine. A seamless, premium experience designed for enthusiasts.</p>
+            <p>Unlock the complete visual suite. A seamless, advertisement-free experience engineered for enthusiasts.</p>
         </div>
         <div class="card">
-            <h3>🌐 Global Curations</h3>
-            <p>A daily refreshed stream of high-fidelity visuals, curated from around the world for your device.</p>
+            <h3>🌍 Global Network</h3>
+            <p>A curated stream of high-performance visuals, aggregated from premium sources worldwide and updated daily.</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Wallpaper Otter. International Edition.</p>
-        <p style="margin-top: 20px;"><a href="app-ads.txt" style="color: #333; text-decoration: none;">Verification</a></p>
+        <p>&copy; 2025 Wallpaper Otter Systems.</p>
+        <p style="margin-top: 20px;"><a href="app-ads.txt" style="color: #444; text-decoration: none;">Compliance Verification</a></p>
     </footer>
 
 </body>
